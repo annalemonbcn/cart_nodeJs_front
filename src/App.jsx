@@ -5,7 +5,7 @@ const App = () => {
   const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   const productsUri = import.meta.env.VITE_API_PRODUCTS_URI;
 
-  const { data, isLoading, isError } = useQuery({
+  const { data, _isLoading, _isError } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
       const res = await axios.get(`${apiBaseUrl}${productsUri}`);
@@ -13,7 +13,6 @@ const App = () => {
     },
   });
 
-  console.log("data", data);
 
   if (!data) return <div>No data available</div>;
 
